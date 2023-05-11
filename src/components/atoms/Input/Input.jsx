@@ -10,7 +10,7 @@ const Input = ({label}) => {
             <input
                 type={'text'}
                 value={value}
-                onChange={setValue}
+                onChange={(event) => setValue(event.target.value)}
                 placeholder={label}
             />
         </div>
