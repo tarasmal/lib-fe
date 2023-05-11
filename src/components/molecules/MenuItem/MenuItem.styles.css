@@ -1,0 +1,7 @@
+.menu-item {
+    color: white;
+}
+.menu-item:hover {
+    opacity: 0.5;
+    cursor: pointer;
+}

@@ -1,6 +1,7 @@
 .navbar {
     display: flex;
     background-color: grey;
+    margin-bottom: 20px;
 }
 .nav-links {
     display: flex;

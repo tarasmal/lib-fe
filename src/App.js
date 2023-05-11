@@ -4,11 +4,11 @@ import CustomRouter from "./CustomRouter";
 
 
 const StudentContent = () => {
-    return <div className="content">Student Content</div>;
+    return <div className="container">Student Content</div>;
 };
 
 const LibrarianContent = () => {
-    return <div className="content">Librarian Content</div>;
+    return <div className="container">Librarian Content</div>;
 };
 
 const App = () => {

@@ -1,0 +1,26 @@
+.menu {
+    flex-grow: 1;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: grey;
+    height: 100%;
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+
+}
+
+.container {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.content {
+    flex-grow: 10;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
