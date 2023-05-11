@@ -1,12 +1,22 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import ContentTemplate from "../../templates/ContentTemplate/ContentTemplate";
+import {getAllApplications} from "../../../api/librarian";
+import {config} from "./config";
 const LibrarianContent = () => {
     const [items, setItems] = useState([])
-    const menuItems = ['Students', 'Books', 'Applications']
     const testItems = ['sdsdsd', 'sdsd', 'sdsdsdsdsd']
-    console.log(['Students', 'Books', 'Applications'])
+    const api = async () => {
+        const response = await getAllApplications()
+        setItems(response)
+    }
+    useEffect(() => {
+        console.log(items)
+    }, [items])
     return (
-        <ContentTemplate items={testItems} menuItems={menuItems}/>
+        <>
+            <ContentTemplate items={items} menuItems={config} setCurrentContent={setItems}/>
+        </>
+
 
     );
 };
