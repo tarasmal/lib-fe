@@ -12,6 +12,7 @@ const CustomRouter = () => {
                 <Route path={'/'} element={<HomePage />}>
                     <Route path={'student'} element={<StudentContent />}/>
                     <Route path={'librarian'} element={<LibrarianContent />}/>
+                    
                 </Route>
             </Routes>
 

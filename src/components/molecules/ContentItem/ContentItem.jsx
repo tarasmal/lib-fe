@@ -1,4 +1,6 @@
-import React from 'react';
+import React, {useCallback} from 'react';
+import Button from "../../atoms/Button/Button";
+import {deleteApplication} from "../../../api/application";
 
 const itemRowStyle = {
     display: 'flex',
@@ -12,19 +14,22 @@ const itemRowStyle = {
     borderRadius: "25px"
 };
 
-const attributeStyle = {
-    marginRight: '10px',
-};
 
 const ContentItem = ({ items }) => {
-    console.log(items)
     const keys = Object.entries(items)
-    console.log(keys)
+    const id = keys[0][1]
+    const deleteHandler = useCallback(async () => {
+        await deleteApplication(id)
+    } ,[items])
+    console.log(id)
     return (
         <div style={itemRowStyle}>
-            {keys?.map(([attribute, value], index) => (
-                <p>{attribute}: {value}</p>
+            {keys?.map(([attribute, value]) => (
+                <p key={attribute}>{attribute}: {value}</p>
             ))}
+            {
+                <Button text={'Delete'} variant={'red'} onClick={deleteHandler}/>
+            }
         </div>
     );
 };

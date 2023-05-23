@@ -11,6 +11,9 @@
     justify-content: center;
     width: 300px;
 }
+.button.red {
+    background-color: red;
+}
 
 .button:hover {
     background-color: darkgray;

@@ -1,4 +1,4 @@
-import {getAllApplications, getAllBooks, getAllStudents} from "../../../api/librarian";
+import {getAllApplications, getAllBooks, getAllStudents} from "../../../api/general";
 
 export const config = [
     {
