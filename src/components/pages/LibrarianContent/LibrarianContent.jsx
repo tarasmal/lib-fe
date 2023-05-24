@@ -10,12 +10,14 @@ const LibrarianContent = () => {
     const [deleteHandler, setDeleteHandler] = useState(config[0].deleteHandler)
     const [updateHandler, setUpdateHandler] = useState(config[0].updateHandler)
     const [isFormOpened, setIsFormOpened] = useState(false)
+    const [currentItemId, setCurrentItemId] = useState('')
     useEffect(() => {
         const fetch = async () => {
             return (await getAllStudents())
         }
         fetch().then(students => setItems(students))
     }, [])
+
     return (
         <div>
             <ContentTemplate
@@ -28,8 +30,18 @@ const LibrarianContent = () => {
                 setUpdateHandler={setUpdateHandler}
                 deleteHandler={deleteHandler}
                 updateHandler={updateHandler}
+                setCurrentItemId={setCurrentItemId}
             />
-            { isFormOpened && <FormTemplate initState={initFormState} setIsFormOpened={setIsFormOpened}/> }
+            {
+                isFormOpened &&
+                <FormTemplate
+                    initState={initFormState}
+                    setIsFormOpened={setIsFormOpened}
+                    submitHandler={updateHandler}
+                    currentItemId={currentItemId}
+
+                />
+            }
         </div>
 
 

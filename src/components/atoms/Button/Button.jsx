@@ -5,6 +5,7 @@ const Button = (
         onClick,
         text,
         variant,
+        ...props
     }
 ) => {
     const [className, setClassName] = useState('button')
@@ -24,6 +25,7 @@ const Button = (
         <button
             className={className}
             onClick={onClick}
+            {...props}
 
         >
             {text}

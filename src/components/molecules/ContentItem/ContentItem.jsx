@@ -1,4 +1,4 @@
-import React, {useCallback} from 'react';
+import React, {useCallback, useEffect} from 'react';
 import Button from "../../atoms/Button/Button";
 import {deleteApplication} from "../../../api/application";
 
@@ -21,15 +21,15 @@ const buttonsSectionStyle = {
 }
 
 
-const ContentItem = ({ items, deleteFunction, setIsFormOpened }) => {
+const ContentItem = ({ items, deleteFunction, setIsFormOpened, setCurrentItemId }) => {
     const keys = Object.entries(items)
     const id = keys[0][1]
     const deleteHandler = useCallback(async () => {
         await deleteFunction(id)
     } ,[items])
-    const update = (event) => {
-        event.stopPropagation()
+    const update = () => {
         setIsFormOpened(true)
+        setCurrentItemId(id)
     }
     return (
         <div style={itemRowStyle}>

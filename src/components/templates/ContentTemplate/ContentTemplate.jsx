@@ -25,7 +25,7 @@ const Menu = ({menuItems, setCurrentContent, setInitFormState, setDeleteHandler,
     )
 }
 
-const Content = ({items, deleteHandler, updateHandler, setIsFormOpened}) => {
+const Content = ({items, deleteHandler, setCurrentItemId, setIsFormOpened}) => {
     return (
         <div className={'content'}>
             {
@@ -35,6 +35,7 @@ const Content = ({items, deleteHandler, updateHandler, setIsFormOpened}) => {
                     items={item}
                     deleteFunction={deleteHandler}
                     setIsFormOpened={setIsFormOpened}
+                    setCurrentItemId={setCurrentItemId}
                     />)
             }
         </div>
@@ -51,7 +52,8 @@ const ContentTemplate = (
         setDeleteHandler,
         setUpdateHandler,
         deleteHandler,
-        updateHandler
+        updateHandler,
+        setCurrentItemId
     }
 ) => {
     return (
@@ -68,6 +70,7 @@ const ContentTemplate = (
                 deleteHandler={deleteHandler}
                 updateHandler={updateHandler}
                 setIsFormOpened={setIsFormOpened}
+                setCurrentItemId={setCurrentItemId}
             />
         </div>
     );

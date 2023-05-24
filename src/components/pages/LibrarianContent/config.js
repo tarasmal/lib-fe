@@ -1,5 +1,5 @@
 import {getAllApplications, getAllBooks, getAllStudents} from "../../../api/general";
-import {deleteApplication} from "../../../api/application";
+import {deleteApplication, updateApplication} from "../../../api/application";
 import {deleteStudent} from "../../../api/student";
 
 export const config = [
@@ -14,10 +14,10 @@ export const config = [
         title: 'Applications',
         handler: getAllApplications,
         deleteHandler: () => deleteApplication,
-        updateHandler: () => {},
+        updateHandler: () => updateApplication,
         formConfig: {
-            returnDate: '',
-            bookId: ''
+            return_date: '',
+            id_book: ''
         },
     },
     {

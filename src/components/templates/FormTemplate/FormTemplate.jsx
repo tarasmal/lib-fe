@@ -15,23 +15,28 @@ const reducer = (state, action) => {
     }
 };
 
-const FormTemplate = ({ initState, setIsFormOpened }) => {
+const FormTemplate = ({ initState, setIsFormOpened, currentItemId, submitHandler }) => {
     const [state, dispatch] = useReducer(reducer, Object.assign({}, initState));
-
     const handleInputChange = (field, value) => {
         dispatch({ type: 'UPDATE_FIELD', field, value });
     };
-    console.log(state)
-    useEffect(() => {
-        const overlay = document.getElementById('overlay')
-        const form = document.getElementsByClassName('form')[0]
-        overlay.addEventListener('click', () => {
-            setIsFormOpened(false)
-        })
-        form.addEventListener('click', (event) => {
-            event.stopPropagation()
-        })
-    }, [])
+    // useEffect(() => {
+    //     const overlay = document.getElementById('overlay')
+    //     const form = document.getElementsByClassName('form')[0]
+    //     overlay.addEventListener('click', () => {
+    //         setIsFormOpened(false)
+    //     })
+    //     form.addEventListener('click', (event) => {
+    //         if (event.target.tagName !== 'BUTTON') {
+    //             event.stopPropagation();
+    //         }
+    //     })
+    // }, [])
+    const submit = async () => {
+        console.log('sraka')
+        await submitHandler(currentItemId, state)
+        setIsFormOpened(false)
+    }
     return (
         <div id={'overlay'}>
             <div className="form">
@@ -45,7 +50,8 @@ const FormTemplate = ({ initState, setIsFormOpened }) => {
                     ))}
                 </div>
                 <div>
-                    <Button text={'Submit'} variant={'green'}/>
+                    <Button type={'submit'} text={'Submit'} variant={'green'} onClick={submit}/>
+                    <Button text={'Close'} variant={'red'} onClick={() => setIsFormOpened(false)}/>
                 </div>
             </div>
         </div>
