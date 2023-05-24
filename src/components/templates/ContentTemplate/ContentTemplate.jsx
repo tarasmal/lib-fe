@@ -29,7 +29,13 @@ const Content = ({items, deleteHandler, updateHandler, setIsFormOpened}) => {
     return (
         <div className={'content'}>
             {
-                items?.map((item, index) => <ContentItem key={index} items={item} deleteFunction={deleteHandler}/>)
+                items?.map((item, index) =>
+                    <ContentItem
+                    key={index}
+                    items={item}
+                    deleteFunction={deleteHandler}
+                    setIsFormOpened={setIsFormOpened}
+                    />)
             }
         </div>
     )

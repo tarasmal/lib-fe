@@ -21,12 +21,16 @@ const buttonsSectionStyle = {
 }
 
 
-const ContentItem = ({ items, deleteFunction, updateHandler }) => {
+const ContentItem = ({ items, deleteFunction, setIsFormOpened }) => {
     const keys = Object.entries(items)
     const id = keys[0][1]
     const deleteHandler = useCallback(async () => {
         await deleteFunction(id)
     } ,[items])
+    const update = (event) => {
+        event.stopPropagation()
+        setIsFormOpened(true)
+    }
     return (
         <div style={itemRowStyle}>
             {keys?.map(([attribute, value]) => (
@@ -34,7 +38,7 @@ const ContentItem = ({ items, deleteFunction, updateHandler }) => {
             ))}
             <div style={buttonsSectionStyle}>
                 <Button text={'Delete'} variant={'red'} onClick={deleteHandler}/>
-                <Button text={'Update'} variant={'green'} onClick={updateHandler}/>
+                <Button text={'Update'} variant={'green'} onClick={update}/>
             </div>
         </div>
     );

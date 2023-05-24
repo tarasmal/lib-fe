@@ -1,7 +1,10 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import './Input.styles.css'
-const Input = ({label}) => {
+const Input = ({label, getValue}) => {
     const [value, setValue] = useState('')
+    useEffect(() => {
+        getValue(value)
+    }, [value])
     return (
         <div
             style={{display: "flex", flexDirection: "column", paddingRight: '5%'}}

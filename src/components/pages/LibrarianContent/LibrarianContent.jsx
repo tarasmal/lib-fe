@@ -16,8 +16,9 @@ const LibrarianContent = () => {
         }
         fetch().then(students => setItems(students))
     }, [])
+    console.log(isFormOpened)
     return (
-        <>
+        <div>
             <ContentTemplate
                 items={items}
                 menuItems={config}
@@ -29,8 +30,8 @@ const LibrarianContent = () => {
                 deleteHandler={deleteHandler}
                 updateHandler={updateHandler}
             />
-            { isFormOpened && <FormTemplate initState={initFormState}/> }
-        </>
+            { isFormOpened && <FormTemplate initState={initFormState} setIsFormOpened={setIsFormOpened}/> }
+        </div>
 
 
     );
