@@ -1,23 +1,25 @@
-import React, {useEffect, useState} from 'react';
-import './Input.styles.css'
-const Input = ({label, getValue}) => {
-    const [value, setValue] = useState('')
-    useEffect(() => {
-        getValue(value)
-    }, [value])
+import React, { useState } from 'react';
+import './Input.styles.css';
+
+const Input = ({ label, getValue }) => {
+    const [value, setValue] = useState('');
+
+    const handleInputChange = (event) => {
+        const inputValue = event.target.value;
+        setValue(inputValue);
+        getValue(inputValue);
+    };
+
     return (
-        <div
-            style={{display: "flex", flexDirection: "column", paddingRight: '5%'}}
-        >
-            <p style={{fontSize: "24px"}}>{label}</p>
+        <div style={{ display: 'flex', flexDirection: 'column', paddingRight: '5%' }}>
+            <p style={{ fontSize: '24px' }}>{label}</p>
             <input
-                type={'text'}
+                type="text"
                 value={value}
-                onChange={(event) => setValue(event.target.value)}
+                onChange={handleInputChange}
                 placeholder={label}
             />
         </div>
-
     );
 };
 

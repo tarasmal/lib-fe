@@ -16,7 +16,6 @@ const LibrarianContent = () => {
         }
         fetch().then(students => setItems(students))
     }, [])
-    console.log(isFormOpened)
     return (
         <div>
             <ContentTemplate
