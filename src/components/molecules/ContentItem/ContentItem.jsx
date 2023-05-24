@@ -13,9 +13,15 @@ const itemRowStyle = {
     marginBottom: '10px',
     borderRadius: "25px"
 };
+const buttonsSectionStyle = {
+    display: 'flex',
+    justifyContent: 'space-around',
+    width: '100%',
+    paddingBottom: '10px'
+}
 
 
-const ContentItem = ({ items, deleteFunction }) => {
+const ContentItem = ({ items, deleteFunction, updateHandler }) => {
     const keys = Object.entries(items)
     const id = keys[0][1]
     const deleteHandler = useCallback(async () => {
@@ -26,9 +32,10 @@ const ContentItem = ({ items, deleteFunction }) => {
             {keys?.map(([attribute, value]) => (
                 <p key={attribute}>{attribute}: {value}</p>
             ))}
-            {
+            <div style={buttonsSectionStyle}>
                 <Button text={'Delete'} variant={'red'} onClick={deleteHandler}/>
-            }
+                <Button text={'Update'} variant={'green'} onClick={updateHandler}/>
+            </div>
         </div>
     );
 };

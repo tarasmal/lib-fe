@@ -13,6 +13,9 @@ const Button = (
             case 'red':
                 setClassName('button red')
                 break
+            case 'green':
+                setClassName('button green')
+                break
             default:
                 setClassName('button')
         }

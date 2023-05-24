@@ -14,11 +14,14 @@
 .button.red {
     background-color: red;
 }
+.button.green {
+    background-color: #08b608;
+}
 
 .button:hover {
-    background-color: darkgray;
+    opacity: 0.5;
 }
 
 .button:active {
-    background-color: gray;
+    opacity: 0.8;
 }
