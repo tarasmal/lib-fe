@@ -15,13 +15,12 @@ const itemRowStyle = {
 };
 
 
-const ContentItem = ({ items }) => {
+const ContentItem = ({ items, deleteFunction }) => {
     const keys = Object.entries(items)
     const id = keys[0][1]
     const deleteHandler = useCallback(async () => {
-        await deleteApplication(id)
+        await deleteFunction(id)
     } ,[items])
-    console.log(id)
     return (
         <div style={itemRowStyle}>
             {keys?.map(([attribute, value]) => (

@@ -1,17 +1,31 @@
 import {getAllApplications, getAllBooks, getAllStudents} from "../../../api/general";
+import {deleteApplication} from "../../../api/application";
+import {deleteStudent} from "../../../api/student";
 
 export const config = [
     {
         title: 'Students',
-        handler: getAllStudents
+        handler: getAllStudents,
+        deleteHandler: () => {},
+        updateHandler: () => {},
+        formConfig: {}
     },
     {
         title: 'Applications',
-        handler: getAllApplications
+        handler: getAllApplications,
+        deleteHandler: () => deleteApplication,
+        updateHandler: () => {},
+        formConfig: {
+            returnDate: '',
+            bookId: ''
+        },
     },
     {
         title: 'Books',
-        handler: getAllBooks
+        handler: getAllBooks,
+        deleteHandler: () => {},
+        updateHandler: () => {},
+        formConfig: {}
     },
 ]
 
